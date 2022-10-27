@@ -25,10 +25,10 @@ contract("TestUniswapLiquidity", (accounts) => {
     console.log("maybe")
     tokenB = await IERC20.at(TOKEN_B);
     console.log("balance")
-    contract = await TestUniswapLiquidity.at('0xAE7Efd03b6255339A159a02B368b8BB40E014e37');
+    contract = await TestUniswapLiquidity.at('0xCD068a6ba8f87f1abECC8789c6D906beBc9dCf0E');
     
-    masterChef = await MasterChef.at('0x0E26E4A70C7ab689b35E2D3060152CF5d03483C9')
-    sushiToken = await SushiToken.at('0x7888523EF197C3b741903fd2570c2cA6BFFDbB6a')
+    masterChef = await MasterChef.at('0x6c840D2f085D8647F4fb1572D817B39Eb4350F36')
+    sushiToken = await SushiToken.at('0xbE61945fa677d2dF3267D485527561B58BFa26a2')
 
     liqAdd = await contract.getLiquidityAddress(tokenA.address,tokenB.address)
    
