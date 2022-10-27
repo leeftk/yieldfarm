@@ -59,19 +59,19 @@ contract("TestUniswapLiquidity", (accounts) => {
     console.log('here???')
 
     liqAdd = await contract.getLiquidityAddress(tokenA.address,tokenB.address)
-    await masterChef.add(1, liqAdd, false, { from: CALLER });
+    console.log(liqAdd)
+    await masterChef.add(1, liqAdd, true, { from: CALLER });
     let userliq = await contract.getLiquidityAmount(tokenA.address,tokenB.address)
     console.log(userliq)
-    userliqToken = await IERC20.at(liqAdd);
-    //balance = userliqToken.methods.balanceOf(CALLER);
-    //console.log("balance",balance)
+    userliqToken = await IERC20.at(liqAdd)
     userliqToken.approve(CALLER, 100000000)
     tokenA.approve(CALLER, 1000000000)
-    tokenB.approve(CALLER, 1000000000)
+          tokenB.approve(CALLER, 1000000000)
+    //poolID  = await masterChef.poolInfo[0].call()
     console.log("we are hereeee???")
-    await masterChef.deposit(0, 100000, { from: CALLER });
-
-
+    await masterChef.deposit(0,  0, { from: CALLER });
+    let events = await masterChef.getPastEvents('Deposit', { fromBlock: 0, toBlock: 'latest' })
+    console.log(events)
 
 
 
@@ -79,6 +79,7 @@ contract("TestUniswapLiquidity", (accounts) => {
 });
 
 
-//cli commands
+// cli commands
 // source .env
 // ganache --fork --unlock $DAI_WHALE --unlock $WETH_WHALE --unlock $USDC_WHALE --port 8456
+// truffle test test/test-uni-liquidity.js --network development
