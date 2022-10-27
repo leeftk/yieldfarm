@@ -3,9 +3,9 @@
 pragma solidity ^0.6.0;
 
 import "../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../node_modules/@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
-import "../node_modules/@openzeppelin/contracts/utils/EnumerableSet.sol";
-import "../node_modules/@openzeppelin/contracts/math/SafeMath.sol";
+import "../node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "../node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+import "../node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
 import "./SushiToken.sol";
 
