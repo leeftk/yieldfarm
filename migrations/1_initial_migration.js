@@ -11,8 +11,8 @@ module.exports = function (deployer) {
       const accounts = await web3.eth.getAccounts();
       const devAddress = accounts[0];
       const bonusBlock = blockNumber + 100
-      await deployer.deploy(MasterChef, sushiToken.address, devAddress, web3.utils.toWei(100), 1, bonusBlock)
-      await sushiToken.transferOwnership(masterChef.address);
+      await deployer.deploy(MasterChef, sushiToken.address, devAddress, 100, 1, bonusBlock)
+      await sushiToken.transferOwnership(MasterChef.address);
     } catch (error) {
       console.log(error)
     }
